@@ -890,32 +890,177 @@
   /* ──────────────────────────────────────────
      FOOTER
   ────────────────────────────────────────── */
-  footer{
-    position:relative;z-index:2;
-    padding:2.5rem 4rem;
-    background:var(--bg2);border-top:1px solid var(--border);
-    display:flex;justify-content:space-between;align-items:center;
-    flex-wrap:wrap;gap:1rem;
-  }
-  .footer-copy{font-size:.82rem;color:var(--muted);}
-  .footer-copy strong{color:var(--cyan);}
-  .footer-socials{display:flex;gap:1rem;}
-  .footer-social{
-    width:36px;height:36px;border-radius:8px;
-    background:var(--card);border:1px solid var(--border);
-    display:flex;align-items:center;justify-content:center;
-    font-size:.95rem;color:var(--muted);cursor:none;
-    transition:all .3s;
-  }
-  .skill-cat-icon i,.ec-icon i{font-size:1.25rem;color:var(--cyan);}
-  .contact-link .icon i{font-size:1rem;color:var(--cyan);}
-  .project-thumb i{font-size:3rem;position:relative;z-index:1;}
-  .ec-period i{font-size:.8rem;color:var(--cyan);}
-  .footer-social i{font-size:.95rem;}
-  .form-msg i{margin-right:.4rem;}
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 4rem 2rem 4rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
 
+/* Container for the grid */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4rem;
+}
 
+/* Brand Section */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.footer-logo span { color: var(--cyan); }
+
+.footer-description {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Links & Stats Grid */
+.footer-content-right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-nav-group h4 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav-link {
+  font-size: 0.85rem;
+  color: var(--muted);
+  transition: 0.3s;
+}
+
+.footer-nav-link:hover { color: var(--text); }
+
+/* Status Badge */
+.status-badge {
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse-green 2s infinite;
+}
+
+/* Social Buttons */
+.footer-socials { display: flex; gap: 0.8rem; }
+
+.footer-social {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--muted);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px var(--glow-c);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-copy strong { color: var(--text); }
+
+.footer-attribution {
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Animations */
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Responsive Fixes */
+@media (max-width: 992px) {
+  footer { padding: 4rem 2rem; }
+  .footer-container { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-content-right { gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .footer-row, .footer-bottom { justify-content: center; text-align: center; }
+  .footer-nav-links { justify-content: center; }
+}
   /* ──────────────────────────────────────────
      REVEAL ANIMATION
   ────────────────────────────────────────── */
@@ -1392,7 +1537,7 @@
            data-gallery-title="Hela Wild"
            data-gallery-org="Figma · UI/UX Design"
            data-gallery-icon="fa-solid fa-cart-shopping"
-           data-photos="">
+           data-photos="sources/helawild/1 (1).png,sources/helawild/1 (2).png,sources/helawild/1 (3).png,sources/helawild/1 (4).png,sources/helawild/1 (5).png,sources/helawild/1 (6).png,sources/helawild/1 (7).png,sources/helawild/1 (8).png,sources/helawild/1 (9).png,sources/helawild/1 (10).png,sources/helawild/1 (11).png,sources/helawild/1 (12).png,sources/helawild/1 (13).png,sources/helawild/1 (14).png,sources/helawild/1 (15).png,sources/helawild/1 (16).png,sources/helawild/1 (17).png,sources/helawild/1 (18).png,sources/helawild/1 (19).png,sources/helawild/1 (20).png,sources/helawild/1 (21).png,sources/helawild/1 (22).png,sources/helawild/1 (23).png,sources/helawild/1 (24).png">
         <div class="project-thumb" style="background:linear-gradient(135deg,#08101f,#0e1a35);">
           <img src="sources/Helawild/cover.jfif" alt="elephant">
         </div>
@@ -1494,84 +1639,111 @@
            data-gallery-title="Student Management System"
            data-gallery-org="Java · Coding Project"
            data-gallery-icon="fa-brands fa-java"
-           data-photos="">
+           data-photos="sources\course\1.jfif,sources\course\2.jfif,sources\course\3.jfif,sources\course\4.jfif,sources\course\5.jfif,sources\course\6.jfif">
         <div class="project-thumb" style="background:linear-gradient(135deg,#071824,#0c2040);">
-          <img src="" alt="Student Management System">
-          <div class="thumb-icon"><i class="fa-brands fa-java" style="color:#b084ff;"></i></div>
-          <div class="thumb-bg" style="background:radial-gradient(circle,#7b2fff,transparent 70%);"></div>
-        </div>
-        <div class="project-body">
-          <div class="project-type">Coding Project · Java</div>
-          <h3 class="project-title">Student Management System</h3>
-          <p class="project-desc">A Java-based CRUD application for managing student records, grades, and schedules — built with a clean Swing GUI and MySQL database integration.</p>
-          <div class="project-tags">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">OOP</span>
-            <span class="project-tag">MySQL</span>
-            <span class="project-tag">Swing GUI</span>
-          </div>
-          <div class="project-links">
-            <a class="project-link" href="#" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a class="project-link live" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-            <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal" data-category="code"
-           data-gallery-title="Personal Portfolio Website"
-           data-gallery-org="HTML · CSS · JavaScript"
-           data-gallery-icon="fa-solid fa-globe"
-           data-photos="">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1a1a,#0d2a1a);">
-          <img src="" alt="Personal Portfolio Website">
-          <div class="thumb-icon"><i class="fa-solid fa-globe" style="color:#00ffa0;"></i></div>
-          <div class="thumb-bg" style="background:radial-gradient(circle,#00ffa0,transparent 70%);"></div>
-        </div>
-        <div class="project-body">
-          <div class="project-type">Web Development · HTML/CSS/JS</div>
-          <h3 class="project-title">Personal Portfolio Website</h3>
-          <p class="project-desc">This very site — built with pure HTML, CSS &amp; JavaScript. Features 3D animations, particle effects, custom cursor, and a responsive layout throughout.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML5</span>
-            <span class="project-tag">CSS3</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">3D Animations</span>
-          </div>
-          <div class="project-links">
-            <a class="project-link" href="#" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a class="project-link live" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
-            <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal" data-category="code"
-           data-gallery-title="Python Data Analyser"
-           data-gallery-org="Python · Data Analysis"
-           data-gallery-icon="fa-brands fa-python"
-           data-photos="">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0f0a1e,#1a0f2e);">
-          <img src="" alt="Python Data Analyser">
-          <div class="thumb-icon"><i class="fa-brands fa-python" style="color:#ffd166;"></i></div>
-          <div class="thumb-bg" style="background:radial-gradient(circle,#ffd166,transparent 70%);"></div>
+          <img src="sources/course/course1.jfif" alt="Course Management System">
+        
         </div>
         <div class="project-body">
           <div class="project-type">Coding Project · Python</div>
-          <h3 class="project-title">Python Data Analyser</h3>
-          <p class="project-desc">A Python script that reads CSV datasets, generates summary statistics, and plots visualisations using Matplotlib — great for academic data analysis tasks.</p>
+          <h3 class="project-title">Course Management System</h3>
+          <p class="project-desc">Developed a comprehensive desktop application using Python Tkinter and MySQL to streamline academic record management, featuring real-time student grade tracking, quick search functionality via student ID lookup, and efficient CRUD operations for data handling. The system incorporates a dynamic result fetching mechanism and secure database integration, demonstrating proficiency in desktop application development, database management, and UI design while addressing real-world educational administration challenges.
+</p>
           <div class="project-tags">
             <span class="project-tag">Python</span>
-            <span class="project-tag">Pandas</span>
-            <span class="project-tag">Matplotlib</span>
-            <span class="project-tag">Data Analysis</span>
+            <span class="project-tag">OOP</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Tkinter GUI</span>
           </div>
           <div class="project-links">
-            <a class="project-link" href="#" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="project-link" href="https://github.com/kesh2k2/Course-Management-System.git" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
           </div>
         </div>
       </div>
+
+      <div class="project-card reveal" data-category="code"
+           data-gallery-title="University Hall Management System"
+           data-gallery-org="React · Coding Project"
+           data-gallery-icon="fa-solid fa-globe"
+           data-photos="sources/hall/1.png,sources/hall/2.png,sources/hall/3.png,sources/hall/4.png,sources/hall/5.png,sources/hall/6.png,sources/hall/7.png,sources/hall/8.png,sources/hall/9.png,sources/hall/10.png">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1a1a,#0d2a1a);">
+          <img src="sources/hall/hall1.jfif" alt="University Hall Management System">
+   
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web Application</div>
+          <h3 class="project-title">University Hall Management System</h3>
+          <p class="project-desc">Developed a web-based university hall management system using React and Firebase to streamline facility administration. The application enables real-time monitoring of lecture hall availability, cleaning status, and resource conditions such as air conditioning functionality, while also facilitating the dissemination of important notices. By leveraging Firebase for backend services, the solution ensures efficient data synchronization and scalable resource management, providing university administrators with a centralized platform to optimize hall utilization and maintain operational transparency.
+</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Soulution</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/kesh2k2/uni-hall.git" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
+            <a class="project-link live" href="https://university-halls.firebaseapp.com/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-category="code"
+           data-gallery-title="Uni2Work"
+           data-gallery-org="University Project · react"
+           data-gallery-icon="fa-brands fa-python"
+           data-photos="sources/uni2work/1.png,sources/uni2work/2.png,sources/uni2work/3.png,sources/uni2work/4.png,sources/uni2work/5.png,sources/uni2work/6.png,sources/uni2work/7.png">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0f0a1e,#1a0f2e);">
+          <img src="sources/uni2work/cover.jfif" alt="cover">
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web Application</div>
+          <h3 class="project-title">Uni2Work</h3>
+          <p class="project-desc">Co-developed a web platform during a hackathon organized by NSBM University, aimed at bridging the gap between academia and industry. As the primary developer, collaborated with a four-member team where Prasadi contributed the core concept, Anjana assisted in function development, and Ruwandi and Vinith handled project pitching. The platform facilitates seamless interaction between universities and industrial partners, enabling features such as meeting scheduling, access to external professional courses, and discussions on current job market requirements to enhance student employability and institutional collaboration.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">Industry</span>
+            <span class="project-tag">Solution</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/kesh2k2/uni2work.git" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      
+            <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
+                         <a class="project-link live" href="https://unitowork-58b29.web.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+
+          </div>
+        </div>
+      </div>
+
+ <div class="project-card reveal" data-category="code"
+           data-gallery-title="Website|Tattoo shop"
+           data-gallery-org="website · next.js"
+           data-gallery-icon="fa-solid fa-globe"
+           data-photos="sources/tsitra/1.jpg,sources/tsitra/2.png,sources/tsitra/3.png,sources/tsitra/4.png,sources/tsitra/5.png,sources/tsitra/6.png,sources/tsitra/7.png,sources/tsitra/8.png,sources/tsitra/9.png,sources/tsitra/10.png,sources/tsitra/11.png,sources/tsitra/12.png">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1a1a,#0d2a1a);">
+          <img src="sources/tsitra/cover.jpg" alt="tsitra Tattoos">
+   
+        </div>
+        <div class="project-body">
+          <div class="project-type">Web Application</div>
+          <h3 class="project-title">tsitra Tattoos</h3>
+          <p class="project-desc">Designed and developed a high-performance, responsive website for Tsitra Tatto using Next.js, featuring a sophisticated dark-themed UI with smooth, custom animations to enhance user engagement and brand identity. Implemented server-side rendering and static generation to ensure optimal load times and SEO performance, personally conducting keyword research, meta-tag optimization, and structured data implementation to maximize organic search visibility. The project highlights expertise in modern React-based frameworks, responsive design principles, and technical SEO strategies, delivering a seamless cross-device experience that effectively showcases portfolio work and drives client conversions.
+</p>
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">Commercial Work</span>
+            <span class="project-tag">Tattooshop</span>
+            <span class="project-tag">SEO</span>
+          </div>
+          <div class="project-links">
+            <button class="gallery-btn green" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> Gallery</button>
+            <a class="project-link live" href="https://www.tsitratattoo.com/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+          </div>
+        </div>
+      </div>      
 
       <!-- ── VIDEO — AI SUBSECTION header ──── -->
       <div class="video-subsection" id="videoSubAI">
@@ -1583,21 +1755,19 @@
       </div>
 
       <div class="project-card reveal" data-category="video" data-sub="ai">
-        <div class="project-thumb video-thumb" style="background:#000;">
+        <div class="project-thumb video-thumb" style="background:#f8f5f5;">
           <!-- Replace src="" with your video file path e.g. src="videos/ai-promo.mp4" -->
           <!-- Or replace with a thumbnail image: <img src="images/ai-video-thumb.jpg"> -->
-          <video controls preload="none" poster="">
-            <source src="" type="video/mp4">
+          <video controls preload="none" poster="sources/videos/posters/tp.jpg">
+            <source src="sources/videos/toothpaste.mp4" type="video/mp4">
             <!-- Replace src="" above with your video file path -->
           </video>
-          <div class="thumb-icon" style="position:absolute;z-index:3;font-size:2.4rem;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">
-            <i class="fa-solid fa-robot" style="color:var(--violet);"></i>
-          </div>
+        
         </div>
         <div class="project-body">
-          <div class="project-type violet">AI Video · AI-Generated</div>
+          <div class="project-type violet">AI Video · Toothpaste Product Prmotion</div>
           <h3 class="project-title">AI Promotional Reel</h3>
-          <p class="project-desc">An AI-generated promotional video created using text-to-video tools — showcasing cutting-edge generative AI visuals with professional narration and music.</p>
+          <p class="project-desc">Created an AI-generated video advertisement for a toothpaste product promotion, leveraging advanced generative AI tools to produce high-quality visual content. The project involved crafting detailed prompts to achieve realistic product rendering and engaging motion graphics, demonstrating proficiency in digital marketing innovation and AI-driven content creation for commercial applications.</p>
           <div class="project-tags">
             <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
             <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
@@ -1614,20 +1784,18 @@
       <div class="project-card reveal" data-category="video" data-sub="ai">
         <div class="project-thumb video-thumb" style="background:#000;">
           <!-- Replace src="" with your video file path e.g. src="videos/ai-explainer.mp4" -->
-          <video controls preload="none" poster="">
-            <source src="" type="video/mp4">
+          <video controls preload="none" poster="sources/videos/posters/dream.PNG">
+            <source src="sources/videos/dream.mp4" type="video/mp4">
           </video>
-          <div class="thumb-icon" style="position:absolute;z-index:3;font-size:2.4rem;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">
-            <i class="fa-solid fa-wand-magic-sparkles" style="color:var(--violet);"></i>
-          </div>
+
         </div>
         <div class="project-body">
-          <div class="project-type violet">AI Video · AI-Assisted Edit</div>
-          <h3 class="project-title">AI Campus Explainer Video</h3>
-          <p class="project-desc">An AI-assisted explainer video for campus awareness — combining AI-generated visuals with voiceover and motion effects to deliver a polished result.</p>
+          <div class="project-type violet">AI Video · Dream Recording App</div>
+          <h3 class="project-title">Innovation Idea Reveal</h3>
+          <p class="project-desc">Designed a futuristic UI/UX concept for an IEEE competition, envisioning a 2050-era application that records human dreams and shares them as short-form video content similar to Instagram Reels, complete with an integrated AI-driven dream analysis feature. To effectively communicate this visionary concept, produced a high-quality, AI-generated promotional video featuring modern aesthetics and immersive sound design, showcasing advanced skills in speculative design, user experience prototyping, and AI-assisted multimedia production.</p>
           <div class="project-tags">
-            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Assisted</span>
-            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Motion Design</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
           </div>
           <div class="project-links">
             <a class="project-link" href="#" target="_blank">
@@ -1637,6 +1805,106 @@
         </div>
       </div>
 
+            <div class="project-card reveal" data-category="video" data-sub="ai">
+        <div class="project-thumb video-thumb" style="background:#000;">
+          <!-- Replace src="" with your video file path e.g. src="videos/ai-explainer.mp4" -->
+          <video controls preload="none" poster="sources/videos/posters/hint.PNG">
+            <source src="sources/videos/hint.mp4" type="video/mp4">
+          </video>
+
+        </div>
+        <div class="project-body">
+          <div class="project-type violet">AI Video · A Hint Video</div>
+          <h3 class="project-title">Give a hint </h3>
+          <p class="project-desc">Produced an AI-generated curiosity-driven teaser video for a hackathon, utilizing binary code visual effects, dynamic animations, and synchronized audio to build anticipation and intrigue. The project demonstrates creative application of generative AI tools in multimedia production, effectively combining technical aesthetics with engaging motion design to capture audience attention and communicate the event's innovative spirit.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="#" target="_blank">
+              <i class="fa-brands fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+      </div>
+
+                  <div class="project-card reveal" data-category="video" data-sub="ai">
+        <div class="project-thumb video-thumb" style="background:#000;">
+          <!-- Replace src="" with your video file path e.g. src="videos/ai-explainer.mp4" -->
+          <video controls preload="none" poster="sources/videos/posters/comming.PNG">
+            <source src="sources/videos/commingsoon.mp4" type="video/mp4">
+          </video>
+
+        </div>
+        <div class="project-body">
+          <div class="project-type violet">AI Video · Coming soon video</div>
+          <h3 class="project-title">Coding is a magic </h3>
+          <p class="project-desc">Created an AI-generated "Coming Soon" teaser video for a hackathon, featuring a creative narrative where coders are portrayed as wizards fixing bugs and enchanting code. The video combines imaginative visual storytelling with synchronized music to build excitement and highlight the magical aspect of problem-solving in programming, demonstrating proficiency in AI-driven video production and creative conceptualization for event marketing.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="#" target="_blank">
+              <i class="fa-brands fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+      </div>
+
+                 <div class="project-card reveal" data-category="video" data-sub="ai">
+        <div class="project-thumb video-thumb" style="background:#000;">
+          <!-- Replace src="" with your video file path e.g. src="videos/ai-explainer.mp4" -->
+          <video controls preload="none" poster="sources/videos/posters/price.png">
+            <source src="sources/videos/price.mp4" type="video/mp4">
+          </video>
+
+        </div>
+        <div class="project-body">
+          <div class="project-type violet">AI Video · Price announcing video</div>
+          <h3 class="project-title">Wonder Lamp</h3>
+          <p class="project-desc">Designed and produced an AI-generated award announcement video for hackathon winners, featuring a creative concept where a genie emerges from a lamp to present the prizes. This imaginative visual narrative combines whimsical storytelling with high-quality AI synthesis and synchronized audio to celebrate participant achievements, demonstrating innovative use of generative media for event branding and ceremonial communications.
+</p>
+          <div class="project-tags">
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="#" target="_blank">
+              <i class="fa-brands fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+      </div>  
+ <div class="project-card reveal" data-category="video" data-sub="ai">
+        <div class="project-thumb video-thumb" style="background:#000;">
+          <!-- Replace src="" with your video file path e.g. src="videos/ai-explainer.mp4" -->
+          <video controls preload="none" poster="sources/videos/posters/intro.png">
+            <source src="sources/videos/entr.mp4" type="video/mp4">
+          </video>
+
+        </div>
+
+        <div class="project-body">
+          <div class="project-type violet">AI Video · Introduction video</div>
+          <h3 class="project-title">Enter the wizard world</h3>
+          <p class="project-desc">Produced a high-fidelity, AI-generated cinematic video featuring a protagonist teleporting from a dystopian alternate universe into a vibrant, magical realm. The project involved crafting intricate prompts to achieve realistic visual effects, seamless transition animations, and distinct atmospheric contrasts between the two worlds. By leveraging advanced generative AI tools, the video demonstrates strong capabilities in digital storytelling, visual composition, and the technical execution of complex sci-fi and fantasy narratives for immersive media production.
+
+</p>
+          <div class="project-tags">
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+            <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="#" target="_blank">
+              <i class="fa-brands fa-youtube"></i> Watch
+            </a>
+          </div>
+        </div>
+
+       </div>  
+      
       <!-- ── VIDEO — OTHER EDITS SUBSECTION header ── -->
       <div class="video-subsection" id="videoSubOther">
         <div class="video-subsection-line"></div>
@@ -1646,115 +1914,107 @@
         <div class="video-subsection-line"></div>
       </div>
 
-      <div class="project-card reveal" data-category="video" data-sub="other">
-        <div class="project-thumb video-thumb" style="background:#000;">
-          <!-- Replace src="" with your video file path e.g. src="videos/promo.mp4" -->
-          <video controls preload="none" poster="">
-            <source src="" type="video/mp4">
-          </video>
-          <div class="thumb-icon" style="position:absolute;z-index:3;font-size:2.4rem;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">
-            <i class="fa-solid fa-film" style="color:#ff4060;"></i>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-type">Video Edit · Event Promo</div>
-          <h3 class="project-title">IT Society Promo Video</h3>
-          <p class="project-desc">High-energy promotional video for the IT Society's annual event — edited with dynamic jump cuts, colour grading, motion titles, and licensed background music.</p>
-          <div class="project-tags">
-            <span class="project-tag">Premiere Pro</span>
-            <span class="project-tag">Motion Titles</span>
-            <span class="project-tag">Colour Grading</span>
-          </div>
-          <div class="project-links">
-            <a class="project-link" href="#" target="_blank">
-              <i class="fa-brands fa-youtube"></i> Watch
-            </a>
-          </div>
-        </div>
+
+   <div class="project-card reveal" data-category="video" data-sub="other">
+  <div class="project-thumb video-thumb" style="background:#f8f5f5; position: relative;">
+    
+    <a href="https://drive.google.com/file/d/1czz9bh518pER9zyNWCOIwaPYgcoZQL6w/view?usp=drive_link" target="_blank" style="display: block; width: 100%; height: 100%; text-decoration: none;">
+      
+      <img src="sources/videos/posters/hack.jfif" alt="Awareness Video Poster" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      
+      <div class="video-play-overlay" style="position:absolute; z-index:3; top:50%; left:50%; transform:translate(-50%,-50%); font-size:3rem; color:var(--cyan); opacity: 0.8;">
+        <i class="fa-solid fa-circle-play"></i>
       </div>
+    </a>
 
-      <div class="project-card reveal" data-category="video" data-sub="other">
-        <div class="project-thumb video-thumb" style="background:#000;">
-          <!-- Replace src="" with your video file path e.g. src="videos/highlights.mp4" -->
-          <video controls preload="none" poster="">
-            <source src="" type="video/mp4">
-          </video>
-          <div class="thumb-icon" style="position:absolute;z-index:3;font-size:2.4rem;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">
-            <i class="fa-solid fa-clapperboard" style="color:#ff4060;"></i>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-type">Video Edit · Event Highlights</div>
-          <h3 class="project-title">Faculty Event Highlights Reel</h3>
-          <p class="project-desc">A cinematic highlights reel covering the Faculty of Management &amp; Learning annual day — shot, selected, and edited into a compelling 3-minute story.</p>
-          <div class="project-tags">
-            <span class="project-tag">Premiere Pro</span>
-            <span class="project-tag">Cinematic Edit</span>
-            <span class="project-tag">Storytelling</span>
-          </div>
-          <div class="project-links">
-            <a class="project-link" href="#" target="_blank">
-              <i class="fa-brands fa-youtube"></i> Watch
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── SOCIAL WORK ───────────────────── -->
-
-      <div class="project-card reveal" data-category="social"
-           data-gallery-title="Mental Health Awareness Campaign"
-           data-gallery-org="Social Campaign · Awareness"
-           data-gallery-icon="fa-solid fa-heart"
-           data-photos="">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a0a1a,#12102a);">
-          <img src="" alt="Mental Health Campaign">
-          <div class="thumb-icon"><i class="fa-solid fa-heart" style="color:var(--gold);"></i></div>
-          <div class="thumb-bg" style="background:radial-gradient(circle,#ffd166,transparent 70%);"></div>
-        </div>
-        <div class="project-body">
-          <div class="project-type gold">Social Campaign · Awareness</div>
-          <h3 class="project-title">Mental Health Awareness Campaign</h3>
-          <p class="project-desc">Led social media content strategy and graphic design for a campus mental health initiative — reaching 2,000+ students across multiple platforms.</p>
-          <div class="project-tags">
-            <span class="project-tag">Photoshop</span>
-            <span class="project-tag">Figma</span>
-            <span class="project-tag">Content Strategy</span>
-            <span class="project-tag">Social Media</span>
-          </div>
-          <div class="project-links">
-            <button class="gallery-btn gold" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> View Gallery</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal" data-category="social"
-           data-gallery-title="Green Campus Initiative"
-           data-gallery-org="Social Campaign · Environment"
-           data-gallery-icon="fa-solid fa-leaf"
-           data-photos="">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0d0a18,#1a1030);">
-          <img src="" alt="Environment Awareness">
-          <div class="thumb-icon"><i class="fa-solid fa-leaf" style="color:#00ffa0;"></i></div>
-          <div class="thumb-bg" style="background:radial-gradient(circle,#00ffa0,transparent 70%);"></div>
-        </div>
-        <div class="project-body">
-          <div class="project-type green">Social Campaign · Environment</div>
-          <h3 class="project-title">Green Campus Initiative</h3>
-          <p class="project-desc">Designed posters, social media graphics, and short video clips for a university environmental awareness drive encouraging sustainable campus habits.</p>
-          <div class="project-tags">
-            <span class="project-tag">Photoshop</span>
-            <span class="project-tag">Graphic Design</span>
-            <span class="project-tag">Campaigning</span>
-          </div>
-          <div class="project-links">
-            <button class="gallery-btn gold" onclick="openGallery(this)"><i class="fa-solid fa-images"></i> View Gallery</button>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /projects-grid -->
   </div>
+  
+  <div class="project-body">
+    <div class="project-type violet">Silent Witness</div>
+    <h3 class="project-title">A short film about the witness </h3>
+    <p class="project-desc"></p>
+    <div class="project-tags">
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link" href="https://drive.google.com/file/d/1czz9bh518pER9zyNWCOIwaPYgcoZQL6w/view?usp=drive_link" target="_blank">
+        <i class="fa-brands fa-youtube"></i> Watch
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /////////////////////////// -->
+
+   <div class="project-card reveal" data-category="video" data-sub="other">
+  <div class="project-thumb video-thumb" style="background:#f8f5f5; position: relative;">
+    
+    <a href="https://drive.google.com/file/d/17BlKQcamTEgep4E7odqbq30ixpesrbvq/view?usp=drive_link" target="_blank" style="display: block; width: 100%; height: 100%; text-decoration: none;">
+      
+      <img src="sources/videos/posters/silent.png" alt="Awareness Video Poster" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      
+      <div class="video-play-overlay" style="position:absolute; z-index:3; top:50%; left:50%; transform:translate(-50%,-50%); font-size:3rem; color:var(--cyan); opacity: 0.8;">
+        <i class="fa-solid fa-circle-play"></i>
+      </div>
+    </a>
+
+  </div>
+  
+  <div class="project-body">
+    <div class="project-type violet">Introducing a Website</div>
+    <h3 class="project-title">Video That created to reveal a new Website</h3>
+    <p class="project-desc"></p>
+    <div class="project-tags">
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link" href="https://drive.google.com/file/d/17BlKQcamTEgep4E7odqbq30ixpesrbvq/view?usp=drive_link" target="_blank">
+        <i class="fa-brands fa-youtube"></i> Watch
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!--  -->
+ <div class="project-card reveal" data-category="video" data-sub="other">
+  <div class="project-thumb video-thumb" style="background:#f8f5f5; position: relative;">
+    
+    <a href="https://drive.google.com/file/d/1LqqXT-zJDOfKlqbEEgOJZ7kDBrtlEnw-/view?usp=sharing" target="_blank" style="display: block; width: 100%; height: 100%; text-decoration: none;">
+      
+      <img src="sources/videos/posters/web.jpg" alt="Awareness Video Poster" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      
+      <div class="video-play-overlay" style="position:absolute; z-index:3; top:50%; left:50%; transform:translate(-50%,-50%); font-size:3rem; color:var(--cyan); opacity: 0.8;">
+        <i class="fa-solid fa-circle-play"></i>
+      </div>
+    </a>
+
+  </div>
+  
+  <div class="project-body">
+    <div class="project-type violet">Introducing a Website</div>
+    <h3 class="project-title">Video That created to reveal a new Website</h3>
+    <p class="project-desc"></p>
+    <div class="project-tags">
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">AI Generated</span>
+      <span class="project-tag" style="border-color:rgba(123,47,255,.3);color:#b084ff;background:rgba(123,47,255,.08);">Text-to-Video</span>
+    </div>
+    <div class="project-links">
+      <a class="project-link" href="https://drive.google.com/file/d/1LqqXT-zJDOfKlqbEEgOJZ7kDBrtlEnw-/view?usp=sharing" target="_blank">
+        <i class="fa-brands fa-youtube"></i> Watch
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="video-subsection" id="magazineSub">
+  <div class="video-subsection-line"></div>
+  <span class="video-subsection-label">
+    <i class="fa-solid fa-newspaper" style="margin-right:.5rem;"></i>Magazine Designs
+  </span>
+  <div class="video-subsection-line"></div>
+</div>
+ 
 </section>
 
 <!-- ══════════════════════════════════════════
@@ -1807,16 +2067,51 @@
 
     <div class="ec-grid">
 
-      <!-- ① IT SOCIETY -->
+      <!-- ① Sports -->
       <div class="ec-card reveal"
-           data-gallery-title="IT Society Member"
-           data-gallery-org="RUSL Information Technology Society"
+           data-gallery-title="Sports"
+           data-gallery-org="Cricketer of RUSL Cricket Team | Crickert of Upcountry lions cricket team"
+           data-gallery-icon="fa-solid fa-baseball-bat-ball"
+           data-photos="sources/sports/1.jpg,sources/sports/2.jpg,sources/sports/3.jpg,sources/sports/4.jpg,sources/sports/5.jpg,sources/sports/6.jpg,sources/sports/7.jpg,sources/sports/8.jpg,sources/sports/9.jpg,sources/sports/10.jpg,sources/sports/11.jpg,sources/sports/12.jpg">
+        <!-- Cover image — replace src with your photo -->
+        <div class="ec-cover">
+          <div class="ec-cover-placeholder"><i class="fa-solid fa-baseball-bat-ball"></i></div>
+          <img class="ec-cover-img" src="sources/sports/1.jpg" alt="slug/cricket" onerror="this.style.display='none'"/>
+          <!-- Thumbnail strip — replace src values with your actual photo paths -->
+          <div class="ec-photo-strip">
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-more">+4</div>
+          </div>
+        </div>
+        <div class="ec-body">
+          <div class="ec-header">
+            <div class="ec-icon"><i class="fa-solid fa-baseball-bat-ball"></i></div>
+            <div>
+              <div class="ec-title">Sports</div>
+              <div class="ec-org">Cricketer of RUSL Cricket Team | Cricketer of Upcountry Lions Cricket Team</div>
+            </div>
+          </div>
+          <p class="ec-desc">Active contributor to cricket matches and training sessions for the RUSL Cricket Team and Upcountry Lions Cricket Team.</p>
+          <div class="ec-footer">
+            <div class="ec-period"><i class="fa-regular fa-calendar"></i> 2023 – Present</div>
+            <button class="ec-gallery-btn" onclick="openGallery(this)">
+              <i class="fa-solid fa-images"></i> View Photos
+            </button>
+          </div>
+        </div>
+      </div>
+
+    <div class="ec-card reveal"
+           data-gallery-title="Hackthons"
+           data-gallery-org="Hacktivate| DHACK | SDG SPRINTS"
            data-gallery-icon="fa-solid fa-computer"
-           data-photos="">
+           data-photos="sources/hackthons/1.jpg,sources/hackthons/2.jpg,sources/hackthons/3.jpg,sources/hackthons/4.jpg,sources/hackthons/5.jpg,sources/hackthons/6.jpg,sources/hackthons/7.jpg,sources/hackthons/8.jpg,sources/hackthons/9.jpg,sources/hackthons/10.jpg,sources/hackthons/11.jpg,sources/hackthons/12.jpg">
         <!-- Cover image — replace src with your photo -->
         <div class="ec-cover">
           <div class="ec-cover-placeholder"><i class="fa-solid fa-computer"></i></div>
-          <img class="ec-cover-img" src="" alt="IT Society" onerror="this.style.display='none'"/>
+          <img class="ec-cover-img" src="sources/hackthons/2.jpg" alt="slug/cricket" onerror="this.style.display='none'"/>
           <!-- Thumbnail strip — replace src values with your actual photo paths -->
           <div class="ec-photo-strip">
             <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
@@ -1829,11 +2124,11 @@
           <div class="ec-header">
             <div class="ec-icon"><i class="fa-solid fa-computer"></i></div>
             <div>
-              <div class="ec-title">IT Society Member</div>
-              <div class="ec-org">RUSL Information Technology Society</div>
+              <div class="ec-title">Hackthons</div>
+              <div class="ec-org">Hacktivate | DHACK | SDG SPRINTS</div>
             </div>
           </div>
-          <p class="ec-desc">Active contributor to tech events, workshops, and hackathons organised by the IT society. Helped coordinate technical sessions and workshops for junior students.</p>
+          <p class="ec-desc">Participated in various hackathons, contributing to innovative solutions and collaborative projects.Proud to say we have participated 4 hackathons so far! and we abled to participate 3 finals </p>
           <div class="ec-footer">
             <div class="ec-period"><i class="fa-regular fa-calendar"></i> 2023 – Present</div>
             <button class="ec-gallery-btn" onclick="openGallery(this)">
@@ -1843,12 +2138,169 @@
         </div>
       </div>
 
+
+      <div class="ec-card reveal"
+           data-gallery-title="Announcing"
+           data-gallery-org="Cinematra | Pixeleye | Pagna Piyasa"
+           data-gallery-icon="fa-solid fa-computer"
+           data-photos="sources/announcing/1.jpg,sources/announcing/2.jpg,sources/announcing/3.jpg,sources/announcing/4.jpg,sources/announcing/5.jpg">
+        <!-- Cover image — replace src with your photo -->
+        <div class="ec-cover">
+          <div class="ec-cover-placeholder"><i class="fa-solid fa-microphone"></i></div>
+          <img class="ec-cover-img" src="sources/announcing/2.jpg" alt="slug/cricket" onerror="this.style.display='none'"/>
+          <!-- Thumbnail strip — replace src values with your actual photo paths -->
+          <div class="ec-photo-strip">
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+            <div class="ec-strip-more">+4</div>
+          </div>
+        </div>
+        <div class="ec-body">
+          <div class="ec-header">
+            <div class="ec-icon"><i class="fa-solid fa-microphone"></i></div>
+            <div>
+              <div class="ec-title">Announcing</div>
+              <div class="ec-org">Cinematra | Pixeleye | Pagna Piyasa</div>
+            </div>
+          </div>
+          <p class="ec-desc">Successfully announced and promoted various events like Pixeleye,Cinematra,Pagna Piyasa through creative media strategies.</p>
+          <div class="ec-footer">
+            <div class="ec-period"><i class="fa-regular fa-calendar"></i> 2023 – Present</div>
+            <button class="ec-gallery-btn" onclick="openGallery(this)">
+              <i class="fa-solid fa-images"></i> View Photos
+            </button>
+          </div>
+        </div>
+      </div>
+
+ <div class="ec-card reveal"
+     data-gallery-title="Pagna Piyasa Community Project"
+     data-gallery-org="Kalaththawa Vidyalaya, Anuradhapura"
+     data-gallery-icon="fa-solid fa-hand-holding-heart"
+     data-photos="sources/SEH/1.jpg,sources/SEH/2.jpg,sources/SEH/3.jpg,sources/SEH/4.jpg,sources/SEH/5.jpg,sources/SEH/6.jpg,sources/SEH/7.jpg,sources/SEH/8.jpg,sources/SEH/9.jpg,sources/SEH/10.jpg,sources/SEH/11.jpg,sources/SEH/12.jpg,sources/SEH/13.jpg,sources/SEH/14.jpg,sources/SEH/15.jpg">
+  
+  <div class="ec-cover">
+    <div class="ec-cover-placeholder"><i class="fa-solid fa-hand-holding-heart"></i></div>
+    <img class="ec-cover-img" src="sources/SEH/9.jpg" alt="Pagna Piyasa Project" onerror="this.style.display='none'"/>
+    
+    <div class="ec-photo-strip">
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-more">+12</div>
+    </div>
+  </div>
+
+  <div class="ec-body">
+    <div class="ec-header">
+      <div class="ec-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <div>
+        <div class="ec-title">Pagna Piyasa</div>
+        <div class="ec-org">Kalaththawa Vidyalaya, Anuradhapura</div>
+      </div>
+    </div>
+    
+    <p class="ec-desc">In collaboration with a group of university colleagues, I spearheaded a community service project to renovate the main hall of Kalaththawa Vidyalaya, an underprivileged school located in the Anuradhapura District. The initiative, titled 'Pagna Piyasa', involved repairing and repainting the hall’s flooring. Following four days of dedicated teamwork and perseverance, we successfully restored the facility for the students. To mark the completion of the project, we organized a closing ceremony featuring cultural performances, including music and dance, providing a memorable experience for the school community.</p>
+    
+    <div class="ec-footer">
+      <div class="ec-period"><i class="fa-regular fa-calendar"></i> Community Service Project</div>
+      <button class="ec-gallery-btn" onclick="openGallery(this)">
+        <i class="fa-solid fa-images"></i> View Photos
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="ec-card reveal"
+     data-gallery-title="Mental Health & Work-Life Balance Workshop"
+     data-gallery-org="Nuwaragampalatha Central Divisional Secretariat"
+     data-gallery-icon="fa-solid fa-brain"
+     data-photos="sources/workshop/1.jfif,sources/workshop/2.jfif,sources/workshop/3.jfif,sources/workshop/4.jfif,sources/workshop/5.jfif,sources/workshop/6.jfif,sources/workshop/7.jfif,sources/workshop/8.jfif,sources/workshop/9.jfif,sources/workshop/10.jfif,sources/workshop/11.jfif">
+  
+  <div class="ec-cover">
+    <div class="ec-cover-placeholder"><i class="fa-solid fa-brain"></i></div>
+    <img class="ec-cover-img" src="sources/workshop/8.jfif" alt="Mental Health Workshop" onerror="this.style.display='none'"/>
+    
+    <div class="ec-photo-strip">
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-more">+8</div>
+    </div>
+  </div>
+
+  <div class="ec-body">
+    <div class="ec-header">
+      <div class="ec-icon" style="color: #10b981;"><i class="fa-solid fa-brain"></i></div>
+      <div>
+        <div class="ec-title">Human Resource Management Workshop</div>
+        <div class="ec-org">Nuwaragampalatha Central Divisional Secretariat</div>
+      </div>
+    </div>
+    
+    <p class="ec-desc">
+      Conducted a meaningful workshop on mental health and work-life balance for the employees of the Divisional Secretariat, Anuradhapura. Part of our HRM studies, this initiative aimed to promote well-being in the workplace. Guided by Mrs. Y.W.H.M. Premathilaka and led by resource person Mr. Y.M.W.G.P.K. Udurawana, our team "Aspire" successfully contributed to professional community development.
+    </p>
+    
+    <div class="ec-footer">
+      <div class="ec-period"><i class="fa-regular fa-calendar"></i> HRM Initiative - Team Aspire</div>
+      <button class="ec-gallery-btn" onclick="openGallery(this)">
+        <i class="fa-solid fa-images"></i> View Photos
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="ec-card reveal"
+     data-gallery-title="University Event Leadership & Coordination"
+     data-gallery-org="Rajarata University of Sri Lanka"
+     data-gallery-icon="fa-solid fa-users-gear"
+     data-photos="sources/events/1.jpg,sources/events/2.jpg,sources/events/3.jpg,sources/events/4.jpg,sources/events/5.jpg,sources/events/6.jpg,sources/events/7.jpg,sources/events/8.jpg">
+  
+  <div class="ec-cover">
+    <div class="ec-cover-placeholder"><i class="fa-solid fa-users-gear"></i></div>
+    <img class="ec-cover-img" src="sources/events/8.jpg" alt="BITCODE V6 Coordination" onerror="this.style.display='none'"/>
+    
+    <div class="ec-photo-strip">
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-thumb"><img src="" alt="" onerror="this.closest('.ec-strip-thumb').style.display='none'"/></div>
+      <div class="ec-strip-more">+5</div>
+    </div>
+  </div>
+
+  <div class="ec-body">
+    <div class="ec-header">
+      <div class="ec-icon" style="color: #ff4060;"><i class="fa-solid fa-trophy"></i></div>
+      <div>
+        <div class="ec-title">Leadership & Event Coordination</div>
+        <div class="ec-org">BITSA & Management Faculty Events</div>
+      </div>
+    </div>
+    
+    <p class="ec-desc">
+      Actively participated in major university events, including Cinematra and Pixel Eye, while serving as the Batch Coordinator for the BITSA association. A significant milestone in my leadership journey was serving as the Main Coordinator for BITCODE V6, the department's largest event. After experiencing BITCODE V5 as an attendee, stepping up to lead V6 provided invaluable experience in managing large-scale technical logistics and strategic team coordination.
+    </p>
+    
+    <div class="ec-footer">
+      <div class="ec-period"><i class="fa-regular fa-calendar"></i> BITCODE V6 - Main Coordinator</div>
+      <button class="ec-gallery-btn" onclick="openGallery(this)">
+        <i class="fa-solid fa-images"></i> View Photos
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
       <!-- ② CREATIVE MEDIA TEAM -->
       <div class="ec-card reveal"
            data-gallery-title="Creative Media Team"
            data-gallery-org="Faculty Media Unit"
            data-gallery-icon="fa-solid fa-video"
-           data-photos="">
+           data-photos="sources/hackthons/1.jpg">
         <div class="ec-cover">
           <div class="ec-cover-placeholder"><i class="fa-solid fa-video"></i></div>
           <img class="ec-cover-img" src="" alt="Creative Media" onerror="this.style.display='none'"/>
@@ -2122,15 +2574,81 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-copy">
-    © 2025 <strong>Akesh De Jayathunga</strong>. Built with <i class="fa-solid fa-heart" style="color:#ff4060;"></i> and a lot of <i class="fa-solid fa-mug-hot" style="color:var(--gold);"></i>
+  <div class="footer-container">
+    
+    <div class="footer-brand">
+      <div class="footer-logo">
+        AKESH<span>.</span>
+      </div>
+      <p class="footer-description">
+        Crafting high-performance digital experiences with modern tech stacks and futuristic design principles.
+      </p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com" target="_blank" class="footer-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com" target="_blank" class="footer-social"><i class="fa-brands fa-github"></i></a>
+        <a href="https://figma.com" target="_blank" class="footer-social"><i class="fa-brands fa-figma"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-content-right">
+      
+      <div class="footer-row">
+        <div class="footer-nav-group">
+          <h4>Navigation</h4>
+          <nav class="footer-nav-links">
+            <a href="#projects" class="footer-nav-link">Projects</a>
+            <a href="#experience" class="footer-nav-link">Experience</a>
+            <a href="#lab" class="footer-nav-link">Technical Lab</a>
+            <a href="#contact" class="footer-nav-link">Contact</a>
+          </nav>
+        </div>
+        
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Available for Hire</span>
+        </div>
+      </div>
+
+      <div class="footer-row" style="border-bottom: none; padding-bottom: 0;">
+        <div class="footer-nav-group">
+          <h4>Social Presence</h4>
+          <nav class="footer-nav-links">
+            <a href="#" class="footer-nav-link">Twitter / X</a>
+            <a href="#" class="footer-nav-link">Instagram</a>
+            <a href="#" class="footer-nav-link">Dribbble</a>
+          </nav>
+        </div>
+
+        <div class="footer-nav-group">
+          <h4 style="color: var(--gold);">Core Stack</h4>
+          <div class="footer-nav-links" style="font-size: 1.2rem; color: var(--muted); gap: 1.5rem;">
+            <i class="fa-brands fa-react" title="React"></i>
+            <i class="fa-brands fa-js" title="JavaScript"></i>
+            <i class="fa-brands fa-node-js" title="Node.js"></i>
+            <i class="fa-brands fa-python" title="Python"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="footer-socials">
-    <a class="footer-social" href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a class="footer-social" href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-    <a class="footer-social" href="https://figma.com" target="_blank"><i class="fa-brands fa-figma"></i></a>
+
+  <div class="footer-container">
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © 2025 <strong>Akesh De Jayathunga</strong>. 
+        <span style="opacity: 0.5;">All Rights Reserved.</span>
+      </div>
+
+      <div class="footer-attribution">
+        Built with 
+        <i class="fa-solid fa-heart" style="color: var(--violet);"></i> 
+        and 
+        <i class="fa-solid fa-mug-hot" style="color: var(--gold);"></i>
+        using <span class="text-gradient">Modern Tech Stack</span>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -2531,6 +3049,63 @@ document.querySelectorAll('.video-thumb video').forEach(vid=>{
   vid.addEventListener('pause',()=>{ overlay.style.opacity='1'; overlay.style.pointerEvents='auto'; });
   overlay.addEventListener('click',()=>{ vid.play(); });
 });
+/* ─── CUSTOM CURSOR LOGIC ─── */
+(function() {
+  // 1. Create cursor element
+  const cursor = document.createElement('div');
+  cursor.id = 'footer-cursor';
+  document.body.appendChild(cursor);
+
+  // 2. Inline styles for the cursor (to ensure it works immediately)
+  Object.assign(cursor.style, {
+    width: '20px',
+    height: '20px',
+    background: 'var(--cyan)',
+    borderRadius: '50%',
+    position: 'fixed',
+    pointerEvents: 'none',
+    zIndex: '9999',
+    mixBlendMode: 'screen',
+    transition: 'transform 0.15s ease-out, background 0.3s ease, box-shadow 0.3s ease',
+    boxShadow: '0 0 15px var(--cyan)',
+    display: 'none',
+    transform: 'translate(-50%, -50%)'
+  });
+
+  // 3. Show cursor and move it
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.display = 'block';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  // 4. Interaction Effects
+  const addCursorListeners = () => {
+    // Select all interactive elements in your new footer
+    const targets = document.querySelectorAll('a, button, .footer-social, .footer-nav-link, i[title]');
+    
+    targets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+        cursor.style.background = 'var(--violet)';
+        cursor.style.boxShadow = '0 0 20px var(--violet)';
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.background = 'var(--cyan)';
+        cursor.style.boxShadow = '0 0 15px var(--cyan)';
+      });
+    });
+  };
+
+  // Run listeners
+  addCursorListeners();
+
+  // Handle click animations
+  document.addEventListener('mousedown', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.7)');
+  document.addEventListener('mouseup', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+})();
 
 /* ─── HIDE FALLBACK ICON WHEN IMAGE LOADS ── */
 document.querySelectorAll('.proj-img, .social-img').forEach(img=>{
